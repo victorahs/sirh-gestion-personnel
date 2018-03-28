@@ -22,7 +22,7 @@ public class EditerCollaborateurController extends HttpServlet {
 			resp.setContentType("text/html");
 			resp.getWriter().write("<h1>Edition de collaborateur </h1>" + "<p> Matricule :  " + matricule);
 
-		}
+		}   
 
 	}
 

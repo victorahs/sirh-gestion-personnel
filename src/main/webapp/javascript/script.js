@@ -31,4 +31,16 @@ $(document).ready(function(){
     $("#actionmodal").click(function(){
         $("#exampleModalCenter").modal();
     });
+    
+    $("#selectDepartement").change(function () {
+        var v = $("#selectDepartement :selected").attr('value');
+        
+        document.location.href="http://localhost:8080/sirh-gestion-personnel/collaborateurs/Creer?filter="+v;
+        
+//        $.post("http://localhost:8080/sirh-gestion-personnel/collaborateurs/Creer", function(v, status){
+//            alert("Data: " + data + "\nStatus: " + status);
+//        });
+    });
 });
+
+

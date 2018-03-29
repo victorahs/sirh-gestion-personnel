@@ -15,10 +15,12 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
 public class CreerCollaborateurController extends HttpServlet{
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	private DepartementService departService = Constantes.DEP_SERVICE;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -39,6 +41,7 @@ public class CreerCollaborateurController extends HttpServlet{
 		String numSecu = req.getParameter("secu");
 		String dateDeNaissance = req.getParameter("birthday");
 		String adresse = req.getParameter("adresse");
+		String filter = req.getParameter("filter");
 		
 		
 		String reponseAffichage = "les parametre suivant sont incorrect : ";
@@ -76,8 +79,9 @@ public class CreerCollaborateurController extends HttpServlet{
 		
 		  collabService.sauvegarderCollaborateur(collaborateur);
 	      
-		
+		  req.setAttribute("listDepart",departService.listerDepartement());
 	      req.setAttribute("listCollab", collabService.listerCollaborateurs());
+	      req.setAttribute("filtre", filter);
 	      req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 		}
 	      

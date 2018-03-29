@@ -1,3 +1,4 @@
+<%@page import="dev.sgp.entite.Departement"%>
 <%@page import="dev.sgp.entite.Collaborateur"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
@@ -86,13 +87,14 @@
             <div class="col-md-4 ">
                 <p>Filtrer par département:</p>
             </div>
-
+<%List<Departement> departement = (List<Departement>)request.getAttribute("listDepart"); %>
             <div class="input-group col-md-4">
-                <select class="custom-select" id="inputGroupSelect04">
+                <select class="custom-select" id="selectDepartement">
                     <option selected>Tous.</option>
-                    <option value="1">Compatibilité</option>
-                    <option value="2">Ressources humaines</option>
-                    <option value="3">Informatique</option>
+                    <% for( Departement d : departement) { %>
+                    <option value=<%=d.getNom() %>><%=d.getNom() %></option>
+                    <%} %>
+                    
                 </select>
                 <div class="input-group-append">
                     <button class="btn btn-outline-light" type="button">Button</button>
@@ -107,6 +109,7 @@
             
 <%
 List<Collaborateur> collab = (List<Collaborateur>)request.getAttribute("listCollab");
+
 for( Collaborateur c : collab){
 	
 %>
@@ -160,6 +163,8 @@ for( Collaborateur c : collab){
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src ="<%=request.getContextPath() %>/javascript/script.js"></script>
+
 </body>
 
 </html>

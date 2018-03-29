@@ -28,6 +28,16 @@ public class Collaborateur {
 	
 	Boolean actif;
 	
+	String intitulePoste;
+	
+	Departement departement;
+	
+	String banque;
+	
+	String bic;
+	
+	String iban;
+	
 	public Collaborateur(String nom, String prenom, String dateDeNaissance, String adresse, String numeroSecuriteSocial) {
 		
 		

@@ -70,7 +70,7 @@
                 <div class="form-group row">
                     <label for="birthday" class="col-md-6 col-form-label">Date de naissance</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="birthday" name = "birthday" required>
+                        <input type="date" class="form-control" id="birthday" name = "birthday" required>
                         <div class="invalid-feedback">
                                 Entrer la date de naissance.
                               </div>
@@ -80,7 +80,7 @@
                 <div class="form-group row">
                     <label for="adresse" class="col-md-6 col-form-label">Adresse</label>
                     <div class="col-md-6">
-                        <textarea class="form-control" id="adresse" name="birthday" rows="3" required></textarea>
+                        <textarea class="form-control" id="adresse" name="adresse" rows="3" required></textarea>
                         <div class="invalid-feedback">
                                 Entrer l'adresse.
                               </div>
@@ -96,6 +96,7 @@
                               </div>
                     </div>
                 </div>
+                
                 <div class="row justify-content-end">
                     <button id ="actionmodal"class="btn btn-primary"  type="button">Créer</button>
                 </div>

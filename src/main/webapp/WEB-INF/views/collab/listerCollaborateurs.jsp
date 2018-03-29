@@ -1,3 +1,4 @@
+<%@page import="dev.sgp.entite.Collaborateur"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -60,6 +61,7 @@
 
         <div class="row">
 
+
             <div class="col-md-4">
                 <p>Rechercher un nom ou un prénom qui commence par :</p>
             </div>
@@ -103,15 +105,19 @@
 
         <div class="row">
             
-
+<%
+List<Collaborateur> collab = (List<Collaborateur>)request.getAttribute("listCollab");
+for( Collaborateur c : collab){
+	
+%>
                 <div class="card col-md-4">
                         <div class="card-header">
-                        <h5 class="card-title">Nom prénom</h5>
+                        <h5 class="card-title"> <%=c.getNom() + " " + c.getPrenom() %></h5>
                         </div>
                         <div class="row">
                             <div class = "col-md-4 text-center m-auto ">
                                 
-                            <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/img.svg" style="height: 100px; width: 100px; " alt="Card image cap">
+                            <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/<%=c.getPhoto() %>" style="height: 100px; width: 100px; " alt="Card image cap">
                         
                         </div>
                             <div class="card-body col-md-8">
@@ -120,7 +126,7 @@
                                     <p>Fonction : développeur </p>
                                     <p>Département : Territoire de belfort </p>
                                     <p>Téléphone : 0600000000 </p>
-                                    <p>Email : example@example.fr </p>
+                                    <p>Email : <%=c.getEmailPro() %> </p>
         
                                 </p>
                                 <div class ="d-flex flex-row-reverse">
@@ -130,140 +136,9 @@
                             </div>
                         </div>
                     </div>
+                <%} %>
 
-            <div class="card col-md-4">
-                    <div class="card-header">
-                    <h5 class="card-title">Nom prénom</h5>
-                    </div>
-                    <div class="row">
-                        <div class = "col-md-4 text-center m-auto ">
-                            
-                        <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/img.svg" style="height: 100px; width: 100px; " alt="Card image cap">
-                    
-                    </div>
-                        <div class="card-body col-md-8">
-    
-                            <p class="card-text">
-                                <p>Fonction : développeur </p>
-                                <p>Département : Territoire de belfort </p>
-                                <p>Téléphone : 0600000000 </p>
-                                <p>Email : example@example.fr </p>
-    
-                            </p>
-                            <div class ="d-flex flex-row-reverse"> 
-                                <a href="editer-collab.html" class="btn btn-primary">Editer</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
 
-            <div class="card col-md-4">
-                    <div class="card-header">
-                    <h5 class="card-title">Nom prénom</h5>
-                    </div>
-                    <div class="row">
-                        <div class = "col-md-4 text-center m-auto ">
-                            
-                        <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/img.svg" style="height: 100px; width: 100px; " alt="Card image cap">
-                    
-                    </div>
-                        <div class="card-body col-md-8">
-    
-                            <p class="card-text">
-                                <p>Fonction : développeur </p>
-                                <p>Département : Territoire de belfort </p>
-                                <p>Téléphone : 0600000000 </p>
-                                <p>Email : example@example.fr </p>
-    
-                            </p>
-                            <div class ="d-flex flex-row-reverse">
-                                <a href="editer-collab.html" class="btn btn-primary">Editer</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card col-md-4">
-                        <div class="card-header">
-                        <h5 class="card-title">Nom prénom</h5>
-                        </div>
-                        <div class="row">
-                            <div class = "col-md-4 text-center m-auto ">
-                                
-                            <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/img.svg" style="height: 100px; width: 100px; " alt="Card image cap">
-                        
-                        </div>
-                            <div class="card-body col-md-8">
-        
-                                <p class="card-text">
-                                    <p>Fonction : développeur </p>
-                                    <p>Département : Territoire de belfort </p>
-                                    <p>Téléphone : 0600000000 </p>
-                                    <p>Email : example@example.fr </p>
-        
-                                </p>
-                                <div class ="d-flex flex-row-reverse">
-                                    <a href="editer-collab.html" class="btn btn-primary">Editer</a>
-                                </div>
-        
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card col-md-4">
-                            <div class="card-header">
-                            <h5 class="card-title">Nom prénom</h5>
-                            </div>
-                            <div class="row">
-                                <div class = "col-md-4 text-center m-auto ">
-                                    
-                                <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/img.svg" style="height: 100px; width: 100px; " alt="Card image cap">
-                            
-                            </div>
-                                <div class="card-body col-md-8">
-            
-                                    <p class="card-text">
-                                        <p>Fonction : développeur </p>
-                                        <p>Département : Territoire de belfort </p>
-                                        <p>Téléphone : 0600000000 </p>
-                                        <p>Email : example@example.fr </p>
-            
-                                    </p>
-                                    <div class ="d-flex flex-row-reverse">
-                                        <a href="editer-collab.html" class="btn btn-primary">Editer</a>
-                                    </div>
-            
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card col-md-4">
-                                <div class="card-header">
-                                <h5 class="card-title">Nom prénom</h5>
-                                </div>
-                                <div class="row">
-                                    <div class = "col-md-4 text-center m-auto ">
-                                        
-                                    <img class="card-img-top inline-block " src="<%=request.getContextPath() %>/images/img.svg" style="height: 100px; width: 100px; " alt="Card image cap">
-                                
-                                </div>
-                                    <div class="card-body col-md-8">
-                
-                                        <p class="card-text">
-                                            <p>Fonction : développeur </p>
-                                            <p>Département : Territoire de belfort </p>
-                                            <p>Téléphone : 0600000000 </p>
-                                            <p>Email : example@example.fr </p>
-                
-                                        </p>
-                                        <div class ="d-flex flex-row-reverse">
-                                            <a href="editer-collab.html" class="btn btn-primary">Editer</a>
-                                        </div>
-                
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
 

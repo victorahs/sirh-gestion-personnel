@@ -1,7 +1,10 @@
 package dev.sgp.entite;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class Collaborateur {
 	
@@ -21,23 +24,23 @@ public class Collaborateur {
 	
 	String photo;
 	
-	ZonedDateTime dateHeureCreation;
+	LocalDateTime dateHeureCreation;
 	
 	Boolean actif;
 	
-	public Collaborateur(String matricule, String nom, String prenom, ZonedDateTime dateHeureCreation, LocalDate dateDeNaissance, String adresse, String numeroSecuriteSocial, String emailPro, String photo, Boolean actif) {
+	public Collaborateur(String nom, String prenom, String dateDeNaissance, String adresse, String numeroSecuriteSocial) {
 		
 		
-		this.matricule = matricule;
+		this.matricule = RandomStringUtils.randomNumeric(15);
 		this.nom = nom;
 		this.prenom = prenom;
-		this.dateDeNaissance = dateDeNaissance;
+		this.dateDeNaissance = LocalDate.parse(dateDeNaissance);
 		this.adresse = adresse;
 		this.numeroSecuriteSocial = numeroSecuriteSocial;
-		this.emailPro = emailPro;
-		this.photo = photo;
-		this.dateHeureCreation = ZonedDateTime.now();
-		this.actif = actif;
+		this.emailPro = nom+"."+prenom+"@societe.com";
+		this.photo = "img.svg";
+		this.dateHeureCreation = LocalDateTime.now();
+		this.actif = true;
 		
 		
 		
@@ -169,14 +172,14 @@ public class Collaborateur {
 	/** Getter
 	 * @return the dateHeureCreation
 	 */
-	public ZonedDateTime getDateHeureCreation() {
+	public LocalDateTime getDateHeureCreation() {
 		return dateHeureCreation;
 	}
 
 	/**Setter
 	 * @param dateHeureCreation the dateHeureCreation to set
 	 */
-	public void setDateHeureCreation(ZonedDateTime dateHeureCreation) {
+	public void setDateHeureCreation(LocalDateTime dateHeureCreation) {
 		this.dateHeureCreation = dateHeureCreation;
 	}
 
@@ -193,6 +196,8 @@ public class Collaborateur {
 	public void setActif(Boolean actif) {
 		this.actif = actif;
 	}
+
+
 	
 	
 	

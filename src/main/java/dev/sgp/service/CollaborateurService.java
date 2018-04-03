@@ -16,4 +16,18 @@ public class CollaborateurService {
 	public void sauvegarderCollaborateur(Collaborateur collab) {
 		listeCollaborateurs.add(collab);
 	}
+	
+	public Collaborateur find(String matricule){
+		
+		for(Collaborateur collab : listeCollaborateurs){
+			
+			if(collab.getMatricule().equals(matricule)){
+				
+				return collab;
+				
+			}
+		}
+		return null;
+	}
+	
 }

@@ -87,7 +87,7 @@
             <div class="col-md-4 ">
                 <p>Filtrer par département:</p>
             </div>
-<%List<Departement> departement = (List<Departement>)request.getAttribute("listDepart"); %>
+<%-- <%List<Departement> departement = (List<Departement>)request.getAttribute("listDepart"); %>
             <div class="input-group col-md-4">
                 <select class="custom-select" id="selectDepartement">
                     <option selected>Tous.</option>
@@ -99,11 +99,23 @@
                 <div class="input-group-append">
                     <button class="btn btn-outline-light" type="button">Button</button>
                 </div>
+            </div> --%>
+            
+            <div class="input-group col-md-4">
+                <select class="custom-select" id="inputGroupSelect04">
+                    <option selected>Tous.</option>
+                    <option value="1">Compatibilité</option>
+                    <option value="2">Ressources humaines</option>
+                    <option value="3">Informatique</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-light" type="button">Button</button>
+                </div>
             </div>
 
 
 
-        </div>
+        </div> 
 
         <div class="row">
             
@@ -127,13 +139,13 @@ for( Collaborateur c : collab){
         
                                 <p class="card-text">
                                     <p>Fonction : développeur </p>
-                                    <p>Département : Territoire de belfort </p>
+                                    <p>Département : <%=c.getAdresse()%> </p>
                                     <p>Téléphone : 0600000000 </p>
                                     <p>Email : <%=c.getEmailPro() %> </p>
         
                                 </p>
                                 <div class ="d-flex flex-row-reverse">
-                                    <a href="editer-collab.html" class="btn btn-primary">Editer</a>
+                                    <a href="<%=request.getContextPath() %>/collaborateurs/Editer?matricule=<%=c.getMatricule() %>" class="btn btn-primary">Editer</a>
                                 </div>
         
                             </div>

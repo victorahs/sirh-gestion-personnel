@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@page import="dev.sgp.entite.Collaborateur"%>
 <!doctype html>
 
 <html lang="en">
@@ -48,13 +49,15 @@
 	</section>
 	<section class="container-fluid">
 
-
+		<%
+			Collaborateur collab = (Collaborateur)request.getAttribute("collaborateur");
+		%> 
 
 
 		<div class="row mb-3">
 			<div class="col-md-8">
 
-				<h1 class="text-center">NOM Prénom - Matricule</h1>
+				<h1 class="text-center"><%=collab.getNom()%>  <%=collab.getPrenom()%> - <%=collab.getMatricule() %></h1>
 
 			</div>
 
@@ -78,8 +81,9 @@
 				<img src="img.svg" class="rounded mx-auto d-block" alt="...">
 			</div>
 			<div class="col-md-5">
-				<form>
+				<form action="<%=request.getContextPath()%>/collaborateurs/Editer" method="post">
 					<div id="accordion">
+					<input type="hidden" id="matricule" placeholder="matricule" name="matricule" value="<%=collab.getMatricule()%>">
 						<div class="card">
 							<div class="card-header" id="headingOne">
 								<h5 class="mb-0">
@@ -107,8 +111,8 @@
 									<div class="form-group row ">
 										<label for="name" class="col-md-6 col-form-label">Nom</label>
 										<div class="col-md-6">
-											<input type="text" class="form-control" id="name" required>
-											<div class="invalid-feedback">Entrer le nom.</div>
+											<input type="text" readonly class="form-control-plaintext" id="name" value="<%=collab.getNom()%>">
+										
 										</div>
 
 									</div>
@@ -116,9 +120,8 @@
 									<div class="form-group row">
 										<label for="lastname" class="col-md-6 col-form-label">Prénom</label>
 										<div class="col-md-6">
-											<input type="text" class="form-control" id="lastname"
-												required>
-											<div class="invalid-feedback">Entrer le prénom.</div>
+											<input type="text" readonly class="form-control-plaintext" id="lastname" value="<%=collab.getPrenom() %>">
+											
 										</div>
 									</div>
 
@@ -127,10 +130,8 @@
 										<label for="birthday" class="col-md-6 col-form-label">Date
 											de naissance</label>
 										<div class="col-md-6">
-											<input type="date" class="form-control" id="birthday"
-												required>
-											<div class="invalid-feedback">Entrer la date de
-												naissance.</div>
+											<input type="text"   class="form-control-plaintext" id="birthday" value="<%=collab.getDateDeNaissance() %>">
+									
 										</div>
 									</div>
 
@@ -138,7 +139,7 @@
 									<div class="form-group row">
 										<label for="adresse" class="col-md-6 col-form-label">Adresse</label>
 										<div class="col-md-6">
-											<textarea class="form-control" id="adresse" rows="3" required></textarea>
+											<textarea class="form-control" id="adresse" name = "adresse" rows="3" required></textarea>
 											<div class="invalid-feedback">Entrer l'adresse.</div>
 										</div>
 									</div>
@@ -148,9 +149,8 @@
 										<label for="secu" class="col-md-6 col-form-label">Numéro
 											de sécurité sociale</label>
 										<div class="col-md-6">
-											<input type="text" class="form-control" id="secu" required>
-											<div class="invalid-feedback">Entrer le numéro de
-												sécurité sociale.</div>
+											<input type="text" class="form-control-plaintext" id="secu" value="<%=collab.getNumeroSecuriteSocial() %>" >
+										
 										</div>
 									</div>
 
@@ -202,7 +202,7 @@
 								<div class="form-group row ">
 									<label for="named" class="col-md-6 col-form-label">Nom</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" id="named" required>
+										<input type="text" class="form-control" id="named" name="named" required>
 										<div class="invalid-feedback">Entrer le nom.</div>
 									</div>
 
@@ -227,7 +227,7 @@
 								<div class="form-group row ">
 									<label for="iban" class="col-md-6 col-form-label">IBAN</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" id="iban" required>
+										<input type="text" class="form-control" id="iban" name ="iban" required>
 										<div class="invalid-feedback">Entrer l'iban.</div>
 									</div>
 
@@ -236,7 +236,7 @@
 								<div class="form-group row ">
 									<label for="bic" class="col-md-6 col-form-label">BIC</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" id="iban" required>
+										<input type="text" class="form-control" id="bic" name = "bic" required>
 										<div class="invalid-feedback">Entrer le bic.</div>
 									</div>
 

@@ -10,14 +10,14 @@
 		<servlet-class>dev.sgp.web.ListerCollaborateursController</servlet-class>
 
 	</servlet>
-	
-		<servlet>
+
+	<servlet>
 		<servlet-name>CreerCollaborateurController</servlet-name>
 
 		<servlet-class>dev.sgp.web.CreerCollaborateurController</servlet-class>
 
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>EditerCollaborateurController</servlet-name>
 
@@ -28,8 +28,8 @@
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<url-pattern>/collaborateurs/lister</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet-mapping>
 		<servlet-name>EditerCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/Editer</url-pattern>
@@ -38,4 +38,13 @@
 		<servlet-name>CreerCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/Creer</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+<filter-name>EncodeFilter</filter-name>
+<filter-class>dev.sgp.filtre.EncodeFilter</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>EncodeFilter</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
 </web-app>
